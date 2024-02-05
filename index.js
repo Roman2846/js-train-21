@@ -29,37 +29,52 @@
 
 class Musician {
   // статичне поле count, яке відслідковує кількість музикантів, початкове значення 0
+  static count = 0;
   // Об'являємо приватні поля #name; #instrument;
+  #name;
+  #instrument;
 
   constructor(name, instrument) {
     // Конструктор приймає два параметри: name та instrument
     // присвоєння вхідного значення name до приватного поля #name
+    this.#name = name;
     // присвоєння вхідного значення instrument до приватного поля #instrument
+    this.#instrument = instrument;
     // збільшення значення статичного поля на 1
+    Musician.count++;
   }
 
   get name() {
     // гетер для приватного поля #name
+    this.#name;
     // повертає значення приватного поля #name
+    return this.#name;
   }
 
   get instrument() {
     // гетер для приватного поля #instrument
+    this.#instrument;
     // повертає значення приватного поля #instrument
+    return this.#instrument;
   }
 
   set name(newName) {
     // сетер для приватного поля #name
+    this.#name;
     // присвоює нове значення приватному полю #name
+    this.#name = newName;
   }
 
   set instrument(newInstrument) {
     // сетер для приватного поля #instrument
+    this.#instrument;
     // присвоює нове значення приватному полю #instrument
+    this.#instrument = newInstrument;
   }
 
   play() {
     // метод, що виводить рядок в консоль <#name> грає на <#instrument>
+    console.info(`${this.#name} грає на ${this.#instrument}`);
   }
 }
 
@@ -99,13 +114,27 @@ class Musician {
 
 class Guitarist extends Musician {
   // Об'являємо приватні поля #band;
-  // Конструктор приймає три параметри: name, instrument та band
-  // виклик конструктора батьківського класу super з двома параметрами name, instrument
-  // присвоєння вхідного значення band до приватного поля #band
+  #band;
+
+  constructor(name, instrument, band) {
+    // Конструктор приймає три параметри: name, instrument та band
+    // виклик конструктора батьківського класу super з двома параметрами name, instrument
+    super(name, instrument);
+    // присвоєння вхідного значення band до приватного поля #band
+    this.#band = band;
+  }
   // гетер для приватного поля #band
-  // повертає значення приватного поля #band
+  get band() {
+    this.#band;
+    // повертає значення приватного поля #band
+    return this.#band;
+  }
   // сетер для приватного поля #band
-  // присвоює нове значення приватному полю #band
+  set band(newBand) {
+    this.#band;
+    // присвоює нове значення приватному полю #band
+    this.#band = newBand;
+  }
   // метод joinBand, що змінює значення #band, this.#band = band
   // перевизначений метод play(), що виводить рядок в консоль ${super.name} грає на ${super.instrument} в групі ${this.#band}
 }
